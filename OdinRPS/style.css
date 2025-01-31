@@ -34,10 +34,10 @@ h1 {
   font-size: 4rem;
 }
 .score.container {
-  gap: 20px;
+  gap: 1.25rem;
 }
 .score span {
-  font-size: 32px;
+  font-size: 2rem;
 }
 .score > h3 {
   font-size: 3rem;
@@ -56,9 +56,9 @@ h1 {
 .buttons > button {
   background-color: #e9edc9;
   border: none;
-  font-size: 120px;
-  border-radius: 20px;
-  padding: 10px;
+  font-size: 7.5rem;
+  border-radius: 1.25rem;
+  padding: 0.625rem;
 }
 .buttons > button:hover {
   transform: scale(1.1);
@@ -71,7 +71,7 @@ h1 {
 #reset {
   border: none;
   font-size: 2rem;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #e9edc9;
   color: #6b705c;
   border-radius: 0.5rem;
