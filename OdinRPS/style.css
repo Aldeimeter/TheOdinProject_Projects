@@ -67,6 +67,7 @@ h1 {
   text-align: center;
   padding-inline: 1rem;
   font-size: 3rem;
+  height: 8rem;
 }
 #reset {
   border: none;
