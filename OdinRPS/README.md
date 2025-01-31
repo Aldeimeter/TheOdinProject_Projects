@@ -1,8 +1,9 @@
 # Brief description
 
-Console rock paper scissors game.
+Rock paper scissors game
 
 # Stack
 
 HTML5
 JavaScript
+CSS

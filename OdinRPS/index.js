@@ -70,6 +70,7 @@ function playRound(computerChoice, humanChoice) {
 }
 
 function handleClick(ev) {
+  if (!OPTIONS.includes(ev.target.id)) return;
   document
     .querySelector(".container.buttons")
     .removeEventListener("click", handleClick);
