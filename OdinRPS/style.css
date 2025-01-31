@@ -1,0 +1,96 @@
+:root {
+  --human-choice: #adc178;
+  --computer-choice: #e26d5c;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+html {
+  font-size: min(16px, 2.5vw);
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccd5ae;
+  color: #6b705c;
+}
+main {
+  min-height: 100vh;
+  gap: 1.25rem;
+  margin-top: max(-100px, -1vh);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 4rem;
+}
+.score.container {
+  gap: 20px;
+}
+.score span {
+  font-size: 32px;
+}
+.score > h3 {
+  font-size: 3rem;
+}
+#human::before {
+  content: "👨";
+}
+#computer::before {
+  content: "💻";
+}
+.buttons.container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.buttons > button {
+  background-color: #e9edc9;
+  border: none;
+  font-size: 120px;
+  border-radius: 20px;
+  padding: 10px;
+}
+.buttons > button:hover {
+  transform: scale(1.1);
+}
+.result {
+  text-align: center;
+  padding-inline: 1rem;
+  font-size: 3rem;
+}
+#reset {
+  border: none;
+  font-size: 2rem;
+  padding: 20px;
+  background-color: #e9edc9;
+  color: #6b705c;
+  border-radius: 0.5rem;
+}
+#reset:hover {
+  transform: scale(1.1);
+}
+.computer-choice {
+  background: var(--computer-choice) !important;
+}
+.human-choice {
+  background: var(--human-choice) !important;
+}
+.tie {
+  background: linear-gradient(
+    45deg,
+    var(--computer-choice),
+    var(--computer-choice) 45%,
+    var(--human-choice) 50%,
+    var(--human-choice)
+  );
+}
