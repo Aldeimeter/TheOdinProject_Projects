@@ -6,6 +6,16 @@ const EQUALS = "=";
 const DOT = ".";
 const UNARYBINARY = "%";
 const BACKSPACE = "⌫";
+const KEYBOARD_ACTIONS = {
+  "+": "+",
+  "-": "-",
+  "*": "×",
+  "/": "÷",
+  Enter: "=",
+  Delete: "C",
+  "%": "%",
+  ".": ".",
+};
 const inputValue = {
   v1: "",
   v2: "",
@@ -151,4 +161,11 @@ function operateUnary(v1, operator) {
 document.querySelector(".buttons").addEventListener("click", (ev) => {
   if (ev.target.tagName !== "DIV" && !ev.target.textContent) return;
   updateInputValue(ev.target.textContent);
+});
+window.addEventListener("keypress", (ev) => {
+  if (ev.key in KEYBOARD_ACTIONS) {
+    updateInputValue(KEYBOARD_ACTIONS[ev.key]);
+  } else if (DIGITS.includes(ev.key)) {
+    updateInputValue(ev.key);
+  }
 });
