@@ -15,14 +15,25 @@ const inputValue = {
 };
 const displayNode = document.querySelector(".display");
 const backSpaceClearNode = document.querySelector("#clear");
+
+function round(num) {
+  return +(Math.round(num + "e+4") + "e-4");
+}
 function updateBackSpaceClearNode() {
   backSpaceClearNode.textContent = inputValue.isUpdated ? CLEAR : BACKSPACE;
 }
+
 function updateDisplay() {
   const { v1, v2, operator } = inputValue;
-  if (v1) displayNode.textContent = `${v1} ${operator} ${v2}`;
-  else displayNode.textContent = "Input a value";
+  if (v1) {
+    displayNode.style.fontSize = "3rem";
+    displayNode.textContent = `${v1} ${operator} ${v2}`;
+  } else {
+    displayNode.style.fontSize = "4rem";
+    displayNode.textContent = "Input a value";
+  }
 }
+
 function updateInputValue(inputSign) {
   if (DIGITS.includes(inputSign)) {
     if (inputValue.operator) {
@@ -78,6 +89,7 @@ function updateInputValue(inputSign) {
   }
   updateDisplay();
 }
+
 function clearInputValue() {
   inputValue.v1 = "";
   inputValue.v2 = "";
@@ -115,6 +127,7 @@ function operate() {
     inputValue.nextOperator = "";
   }
 }
+
 function operateBinary(v1, v2, operator) {
   const operations = {
     "+": (v1, v2) => v1 + v2,
@@ -123,18 +136,19 @@ function operateBinary(v1, v2, operator) {
     "÷": (v1, v2) => v1 / v2,
     "%": (v1, v2) => v1 % v2,
   };
-  return operations[operator](v1, v2).toFixed(5);
+  return round(operations[operator](v1, v2));
 }
+
 function operateUnary(v1, operator) {
   const operations = {
     "%": (v1) => v1 / 100,
     "±": (v1) => -v1,
     "": (v1) => v1,
   };
-  return operations[operator](v1).toFixed(5);
+  return round(operations[operator](v1));
 }
+
 document.querySelector(".buttons").addEventListener("click", (ev) => {
   if (ev.target.tagName !== "DIV" && !ev.target.textContent) return;
-  const sign = ev.target.textContent;
-  updateInputValue(sign);
+  updateInputValue(ev.target.textContent);
 });
