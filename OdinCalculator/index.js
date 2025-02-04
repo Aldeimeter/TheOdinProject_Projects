@@ -15,6 +15,7 @@ const KEYBOARD_ACTIONS = {
   Delete: "C",
   "%": "%",
   ".": ".",
+  Backspace: BACKSPACE,
 };
 const inputValue = {
   v1: "",
@@ -48,6 +49,11 @@ function updateInputValue(inputSign) {
   if (DIGITS.includes(inputSign)) {
     if (inputValue.operator) {
       inputValue.v2 += inputSign;
+      if (inputValue.isUpdated) {
+        inputValue.v2 = "";
+        inputValue.isUpdated = false;
+        updateBackSpaceClearNode();
+      }
     } else {
       if (inputValue.isUpdated) {
         inputValue.v1 = "";
@@ -112,32 +118,30 @@ function operate() {
 
   if (v2 || inputValue.v2 === "0") {
     const result = operateBinary(v1, v2, inputValue.operator);
-    clearInputValue();
-    inputValue.v1 = result;
-    inputValue.isUpdated = true;
-    updateBackSpaceClearNode();
+    updateResult(result);
   } else {
     const result = operateUnary(v1, inputValue.operator);
-    clearInputValue();
-    inputValue.v1 = result;
-    inputValue.isUpdated = true;
-    updateBackSpaceClearNode();
+    updateResult(result);
   }
   const { nextOperator } = inputValue;
   if (nextOperator) {
     if (BINARY.includes(nextOperator)) {
       inputValue.operator = nextOperator;
+      return;
     } else if (UNARY.includes(nextOperator)) {
       const result = operateUnary(inputValue.v1, nextOperator);
-      clearInputValue();
-      inputValue.v1 = result;
-      inputValue.isUpdated = true;
-      updateBackSpaceClearNode();
+      updateResult(result);
     }
     inputValue.nextOperator = "";
   }
 }
 
+function updateResult(result) {
+  clearInputValue();
+  inputValue.v1 = result;
+  inputValue.isUpdated = true;
+  updateBackSpaceClearNode();
+}
 function operateBinary(v1, v2, operator) {
   const operations = {
     "+": (v1, v2) => v1 + v2,
@@ -162,7 +166,7 @@ document.querySelector(".buttons").addEventListener("click", (ev) => {
   if (ev.target.tagName !== "DIV" && !ev.target.textContent) return;
   updateInputValue(ev.target.textContent);
 });
-window.addEventListener("keypress", (ev) => {
+window.addEventListener("keydown", (ev) => {
   if (ev.key in KEYBOARD_ACTIONS) {
     updateInputValue(KEYBOARD_ACTIONS[ev.key]);
   } else if (DIGITS.includes(ev.key)) {
