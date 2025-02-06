@@ -48,12 +48,12 @@ function updateDisplay() {
 function updateInputValue(inputSign) {
   if (DIGITS.includes(inputSign)) {
     if (inputValue.operator) {
-      inputValue.v2 += inputSign;
       if (inputValue.isUpdated) {
         inputValue.v2 = "";
         inputValue.isUpdated = false;
         updateBackSpaceClearNode();
       }
+      inputValue.v2 += inputSign;
     } else {
       if (inputValue.isUpdated) {
         inputValue.v1 = "";
@@ -69,7 +69,7 @@ function updateInputValue(inputSign) {
       inputValue.v1 += inputSign;
     }
   } else if (BINARY.includes(inputSign)) {
-    if (!inputValue.v1) return;
+    if (inputValue.v1 === "") return;
     if (inputValue.operator && inputValue.v2) {
       inputValue.nextOperator = inputSign;
       operate();
@@ -77,7 +77,7 @@ function updateInputValue(inputSign) {
       inputValue.operator = inputSign;
     }
   } else if (UNARY.includes(inputSign)) {
-    if (!inputValue.v1) return;
+    if (inputValue.v1 === "") return;
     if (inputValue.operator && inputValue.v2) {
       inputValue.nextOperator = inputSign;
     } else {
