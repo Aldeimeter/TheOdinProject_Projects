@@ -36,7 +36,7 @@ function updateBackSpaceClearNode() {
 
 function updateDisplay() {
   const { v1, v2, operator } = inputValue;
-  if (v1) {
+  if (v1 || v1 === 0) {
     displayNode.style.fontSize = "3rem";
     displayNode.textContent = `${v1} ${operator} ${v2}`;
   } else {
