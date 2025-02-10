@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="form container">
+        <figure class="left">
+          <img
+            src="./eugenia-clara-9jqWjvspvJo-unsplash.jpg"
+            alt="brown and white concrete building during daytime"
+          />
+          <div class="logo">
+            <img
+              src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png"
+              alt="The odin project logo - Odin God"
+            /><span>Odin</span>
+          </div>
+          <figcaption>
+            Photo by
+            <a class="underline" href="https://unsplash.com/@eugeniaclara"
+              >Eugenia Clara</a
+            >
+            on <a href="https://unsplash.com/" class="underline">Unsplash</a>
+          </figcaption>
+        </figure>
+        <div class="right">
+          <p>
+            This is not a real online service! You know you need something like
+            this in your life to help you realize your deepest dreams. Sign up
+            <em>now</em> to get started.
+          </p>
+          <h2>You <em>know</em> you want to.</h2>
+          <form action="" class="sign-up">
+            <div class="inputs">
+              <h2>Let's do this!</h2>
+              <label for="firstName">
+                first name
+                <input type="text" id="firstName" name="firstName" required />
+              </label>
+              <label for="lastName">
+                last name
+                <input type="text" id="lastName" name="lastName" required />
+              </label>
+              <label for="email">
+                email
+                <input type="email" id="email" name="email" required />
+              </label>
+              <label for="phone-number">
+                phone number
+                <input
+                  type="tel"
+                  id="phone-number"
+                  name="phone-number"
+                  required
+                />
+              </label>
+              <label for="password">
+                password
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  minlength="8"
+                />
+              </label>
+              <label for="password-again">
+                confirm password
+                <input
+                  type="password"
+                  id="password-again"
+                  name="password-again"
+                  required
+                  minlength="8"
+                  pattern="[a-zA-Z0-9!@#$%^&*|]{8,}"
+                />
+              </label>
+            </div>
+            <button>Create account</button>
+          </form>
+          <p class="lower">
+            Already have an account? <a href="./login.html">Log in</a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
