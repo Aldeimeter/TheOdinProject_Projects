@@ -25,6 +25,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+svg {
+  cursor: pointer;
+}
 .container {
   display: grid;
 }
@@ -45,6 +48,7 @@ a {
 }
 nav.container {
   grid-template-rows: 1fr 1fr;
+  max-height: 100vh;
 }
 .upper.container,
 .lower.container {
@@ -70,6 +74,9 @@ nav.container {
 }
 .sidebar a {
   grid-column: 2/3;
+}
+.sidebar a:hover {
+  color: #f0b325;
 }
 header {
   grid-area: header;
@@ -112,6 +119,7 @@ header {
 }
 .profile .avatar {
   height: 50px;
+  cursor: pointer;
 }
 .profile svg {
   height: 30px;
@@ -119,6 +127,10 @@ header {
 .profile .name {
   font-size: 1.25rem;
   font-weight: bold;
+}
+.profile .name:hover {
+  color: #505050;
+  cursor: pointer;
 }
 .greetings {
   display: grid;
@@ -145,12 +157,12 @@ header {
   grid-column: 2;
   grid-row: 2;
 }
-.controls {
+header .controls {
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
   gap: 15px;
 }
-.controls > button {
+header .controls > button {
   font-weight: bold;
   background-color: #1992d4;
   color: #ffffff;
@@ -158,11 +170,24 @@ header {
   padding: 0.5em 1.5em;
   border: none;
   border-radius: 1.5em;
+  cursor: pointer;
+}
+header .controls > button:hover {
+  transform: scale(1.1);
 }
 main {
   grid-area: main;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 20px;
+  padding: 40px 30px;
+}
+div.projects,
+div.announcements,
+div.trending {
+  grid-template-rows: 30px 1fr;
+  gap: 10px;
 }
 div.projects {
   grid-column: 1;
@@ -175,4 +200,74 @@ div.announcements {
 div.trending {
   grid-column: 2;
   grid-row: 2;
+}
+ul.projects {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 30px;
+}
+.projects li.card {
+  display: grid;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border-left: 10px solid #f0b325;
+  padding: 30px;
+  grid-template-rows: 3fr 1fr;
+  max-height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+.announcements li.card:hover,
+.trending li.card:hover,
+.projects li.card:hover {
+  transform: scale(1.05);
+}
+.card p {
+  color: #505050;
+}
+.projects li.card .controls {
+  margin-left: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.projects li.card .controls button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.projects li.card .controls button:hover {
+  transform: scale(1.2);
+}
+.projects li.card .controls svg {
+  height: 28px;
+}
+ul.trending,
+ul.announcements {
+  background-color: #ffffff;
+  padding: 40px;
+  row-gap: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+ul.trending,
+ul.announcements > li {
+  cursor: pointer;
+}
+ul.announcements > li:not(:last-child) {
+  border-bottom: 2px solid #dadada;
+}
+.announcements .card p {
+  font-size: 1rem;
+}
+ul.trending .card {
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 20px;
+  font-size: 1.25rem;
+}
+ul.trending .card .avatar {
+  height: 50px;
+  grid-row: 1/3;
+  grid-column: 1;
 }
