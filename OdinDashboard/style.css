@@ -161,4 +161,18 @@ header {
 }
 main {
   grid-area: main;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+div.projects {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+div.announcements {
+  grid-column: 2;
+  grid-row: 1;
+}
+div.trending {
+  grid-column: 2;
+  grid-row: 2;
 }
