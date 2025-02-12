@@ -16,6 +16,7 @@ html {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  background-color: #e2e8f0;
 }
 ul {
   list-style: none;
@@ -29,7 +30,7 @@ a {
 }
 .main.container {
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 200px 1fr;
   grid-template-areas: "sidebar header" "sidebar main";
   min-height: 100vh;
 }
@@ -72,6 +73,91 @@ nav.container {
 }
 header {
   grid-area: header;
+  background-color: #ffffff;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 20px 40px;
+  align-content: center;
+}
+.search {
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: 40%;
+  gap: 15px;
+  align-content: center;
+}
+.search button {
+  border: none;
+  background: transparent;
+}
+.search svg {
+  height: 24px;
+  cursor: pointer;
+  /*align-self: center;*/
+}
+.search input {
+  grid-row: 1;
+  grid-column: 2;
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 25px;
+  width: 95%;
+}
+.profile {
+  grid-template-columns: minmax(30px, 1fr) minmax(50px, 1fr) 3fr;
+  justify-self: end;
+  justify-items: end;
+  align-items: center;
+  gap: 30px;
+}
+.profile .avatar {
+  height: 50px;
+}
+.profile svg {
+  height: 30px;
+}
+.profile .name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.greetings {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 5px;
+  column-gap: 20px;
+}
+.greetings .avatar {
+  height: 80px;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.greetings p {
+  font-weight: bold;
+}
+.greetings .greeting {
+  grid-column: 2;
+  align-self: end;
+}
+.greetings .name {
+  align-self: start;
+  font-size: 1.75rem;
+  grid-column: 2;
+  grid-row: 2;
+}
+.controls {
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  gap: 15px;
+}
+.controls > button {
+  font-weight: bold;
+  background-color: #1992d4;
+  color: #ffffff;
+  font-size: 1.25rem;
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 1.5em;
 }
 main {
   grid-area: main;
