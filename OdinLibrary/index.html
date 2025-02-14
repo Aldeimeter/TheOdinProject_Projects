@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Library</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&family=Lobster&display=swap");
+    </style>
+    <link href="./style.css" rel="stylesheet" />
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <aside>
+      <form action="">
+        <h2>Add book to the library</h2>
+        <p class="floating-label">
+          <input required type="text" id="title" name="title" placeholder="" />
+          <label for="title">Title</label>
+        </p>
+        <p class="floating-label">
+          <input
+            required
+            type="text"
+            id="author"
+            name="author"
+            placeholder=""
+          />
+          <label for="author">Author</label>
+        </p>
+        <p class="floating-label">
+          <input
+            required
+            type="number"
+            id="pages"
+            name="pages"
+            min="1"
+            max="10000"
+            placeholder=""
+          />
+          <label for="pages">Pages</label>
+        </p>
+        <p class="is-read">
+          <label for="is-read">I have already read this book </label>
+          <input type="checkbox" id="is-read" name="isRead" />
+        </p>
+        <button type="submit">Add</button>
+      </form>
+    </aside>
+    <main class="container" id="library"></main>
+  </body>
+</html>

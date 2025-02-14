@@ -1,0 +1,215 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  /*font-family: "Lobster";*/
+}
+button {
+  font: inherit;
+  color: inherit;
+}
+input {
+  font: inherit;
+}
+body {
+  background-color: #606c38;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 3fr 1fr;
+}
+
+form {
+  color: #fefae0;
+  background-color: #283618;
+  margin-inline: 32px;
+  margin-top: 32px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+form > h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+.floating-label {
+  position: relative;
+}
+.floating-label label {
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 8px;
+  padding: 0 5px;
+  transition: 0.2s ease all;
+  color: #fefae0;
+  background-color: #283618;
+  font-size: 1.5rem;
+}
+.floating-label input[type="text"],
+.floating-label input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #283618;
+  border: 1px solid #fefae0;
+  color: #fefae0;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  &:focus {
+    outline: none;
+    & ~ label {
+      top: -12px;
+      font-size: 1.25rem;
+    }
+  }
+}
+.floating-label input:not(:placeholder-shown) ~ label {
+  top: -12px;
+  font-size: 1.25rem;
+}
+.is-read {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.is-read > label {
+  font-size: 1.5rem;
+}
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  transition: box-shadow 0.3s;
+  background: #fefae0;
+  cursor: pointer;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input:checked {
+  box-shadow: inset 0 0 0 20px #606c38;
+}
+input:checked::before {
+  content: "✓";
+  font-size: 1.5rem;
+  color: #fefae0;
+}
+form > button {
+  border: none;
+  border-radius: 5px;
+  background-color: #fefae0;
+  color: #283618;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 0;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+form > button:hover,
+form > button:focus {
+  color: #fefae0;
+  background-color: #606c38;
+  outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  padding: 40px;
+  gap: 20px;
+  background-color: #283618;
+  margin-block: 32px;
+  border-radius: 5px;
+}
+.book {
+  position: relative;
+  background-color: #606c38;
+  padding: 20px;
+  color: #fefae0;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
+}
+.book > h3 {
+  grid-column: span 2;
+  font-size: 1.25rem;
+}
+.book > h4 {
+  grid-column: span 2;
+  &:before {
+    content: "by ";
+  }
+}
+.toggle-read {
+  background-color: #fefae0;
+  color: #283618;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.toggle-read:hover,
+.toggle-read:focus {
+  outline: none;
+  background-color: #283618;
+  color: #fefae0;
+}
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background-color: transparent;
+}
+.delete::before {
+  font-size: 1.5rem;
+  content: "X";
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+.delete:hover,
+.delete:focus {
+  color: red;
+  outline: none;
+}
