@@ -7,5 +7,69 @@
     <link href="./style.css" rel="stylesheet" />
     <script defer src="index.js"></script>
   </head>
-  <body></body>
+  <body>
+    <main class="container">
+      <h1>Tic Tac Toe</h1>
+      <form action="" method="get" class="">
+        <fieldset>
+          <legend>Player 1</legend>
+          <p class="floating-label">
+            <input
+              required
+              type="text"
+              id="player-1-name"
+              name="player-1-name"
+              placeholder=""
+            />
+            <label for="player-1-name">Name</label>
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Player 2</legend>
+          <p class="floating-label">
+            <input
+              required
+              type="text"
+              id="player-2-name"
+              name="player-2-name"
+              placeholder=""
+            />
+            <label for="player-2-name">Name</label>
+          </p>
+          <!--<p class="is-ai">-->
+          <!--  <label for="is-ai">AI</label>-->
+          <!--  <input type="checkbox" id="is-ai" name="isAi" />-->
+          <!--</p>-->
+        </fieldset>
+        <button type="submit">Start</button>
+      </form>
+      <div class="game-container hidden">
+        <div class="score">
+          <p id="player-1">
+            <span class="name">Artem</span><span class="score">0</span>
+          </p>
+          <p>VS.</p>
+          <p id="player-2">
+            <span class="name">Alena</span><span class="score">10</span>
+          </p>
+        </div>
+        <div class="game">
+          <span data-x="0" data-y="0"></span>
+          <span data-x="1" data-y="0"></span>
+          <span data-x="2" data-y="0"></span>
+          <span data-x="0" data-y="1"></span>
+          <span data-x="1" data-y="1"></span>
+          <span data-x="2" data-y="1"></span>
+          <span data-x="0" data-y="2"></span>
+          <span data-x="1" data-y="2"></span>
+          <span data-x="2" data-y="2"></span>
+        </div>
+        <div class="controls">
+          <button id="restart">Restart</button>
+          <button id="reset">Reset</button>
+        </div>
+        <p class="info"></p>
+      </div>
+    </main>
+  </body>
 </html>
