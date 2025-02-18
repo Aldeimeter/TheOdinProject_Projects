@@ -96,6 +96,7 @@ const gameDOM = (function () {
     if (timeout) {
       setTimeout(() => {
         infoNode.style.opacity = 0;
+        setTimeout(() => infoNode.textContent, 500);
       }, timeout);
     }
   }

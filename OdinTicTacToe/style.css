@@ -233,3 +233,6 @@ div.score span.name:after {
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
+div:has(.info:not(:empty)) {
+  filter: blur(5px);
+}
