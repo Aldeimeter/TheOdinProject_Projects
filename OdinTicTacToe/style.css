@@ -34,6 +34,9 @@ body {
   justify-items: center;
   gap: clamp(5px, 5vh, 50px);
 }
+body > *:not(#stars-container) {
+  z-index: 1;
+}
 button {
   cursor: pointer;
   transition: background-color 0.5s ease;
@@ -347,11 +350,11 @@ footer {
   bottom: -25%;
 }
 #star-1 {
-  background-image: url("./star-1.svg");
+  background-image: url("./assets/star-1.svg");
   left: -35%;
 }
 #star-2 {
-  background-image: url("./star-2.svg");
+  background-image: url("./assets/star-2.svg");
   right: -60%;
 }
 @media screen and (max-width: 1300px) {
