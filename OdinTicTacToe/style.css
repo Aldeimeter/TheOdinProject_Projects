@@ -329,3 +329,39 @@ footer {
   font-size: 2em; /* Increase font size */
   line-height: 0; /* Prevent line height expansion */
 }
+
+#stars-container {
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+#stars-container i {
+  background-size: 75%;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: -25%;
+}
+#star-1 {
+  background-image: url("./star-1.svg");
+  left: -35%;
+}
+#star-2 {
+  background-image: url("./star-2.svg");
+  right: -60%;
+}
+@media screen and (max-width: 1300px) {
+  #stars-container i {
+    bottom: -50%;
+  }
+}
+@media screen and (max-width: 900px) {
+  #stars-container i {
+    bottom: -70%;
+    background-size: 100%;
+  }
+}
