@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-weight: 400;
+  line-height: 1.5;
 }
 :root {
   --dark-bg: #60323e;
@@ -276,20 +277,46 @@ div:has(.text:not(:empty)) > div.game {
   filter: blur(5px);
 }
 a {
-  color: #d96293;
+  color: var(--pink-bg);
 }
 footer {
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
 }
-/*#star-1 {*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  left: -15%;*/
-/*}*/
-/*#star-2 {*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  right: 300px;*/
-/*}*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltip-text {
+  visibility: hidden;
+  font-size: 0.75rem;
+  width: 55ch;
+  position: absolute;
+  z-index: 1;
+  top: -400%;
+  left: -100%;
+  border: 2px dashed var(--pink-bg);
+  text-align: start;
+  padding: 5px;
+  padding-right: 0;
+  border-radius: 5px;
+  cursor: help;
+  letter-spacing: 0.1rem;
+}
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+.credit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.italic {
+  font-style: italic;
+}
+.cyrillic-font {
+  font-family: "Monomakh", serif;
+  font-size: 2em; /* Increase font size */
+  line-height: 0; /* Prevent line height expansion */
+}
