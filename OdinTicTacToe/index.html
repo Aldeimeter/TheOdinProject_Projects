@@ -6,6 +6,9 @@
     <title>Tic Tac Toe</title>
     <link href="./style.css" rel="stylesheet" />
     <script defer src="index.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+    </style>
   </head>
   <body>
     <main class="container">
@@ -44,16 +47,22 @@
         <button type="submit">Start</button>
       </form>
       <div class="game-container hidden">
-        <div class="score">
-          <p id="player-1">
-            <span class="name">Artem</span><span class="score">0</span>
-          </p>
-          <p>VS.</p>
-          <p id="player-2">
-            <span class="name">Alena</span><span class="score">10</span>
-          </p>
+        <div class="info">
+          <div class="score">
+            <p id="player-1">
+              <span class="name">Artem</span><span class="score">0</span>
+            </p>
+            <p>VS.</p>
+            <p id="player-2">
+              <span class="name">Alena</span><span class="score">10</span>
+            </p>
+          </div>
+          <div class="controls">
+            <button id="restart">Restart</button>
+            <button id="reset">Reset</button>
+          </div>
         </div>
-        <p class="info"></p>
+        <p class="text"></p>
         <div class="game">
           <span data-x="0" data-y="0"></span>
           <span data-x="1" data-y="0"></span>
@@ -65,11 +74,14 @@
           <span data-x="1" data-y="2"></span>
           <span data-x="2" data-y="2"></span>
         </div>
-        <div class="controls">
-          <button id="restart">Restart</button>
-          <button id="reset">Reset</button>
-        </div>
       </div>
     </main>
+    <footer>
+      <p class="credit">
+        Site by <a href="https://github.com/Aldeimeter">Artem</a>
+        Obujuchivanie by
+        <a href="https://instagram.com/blue.a.cake">Alenix</a>
+      </p>
+    </footer>
   </body>
 </html>

@@ -68,7 +68,7 @@ const gameboard = (function () {
 
 const gameDOM = (function () {
   const boardNodes = [...document.querySelectorAll(".game > span")];
-  const infoNode = document.querySelector(".info");
+  const textNode = document.querySelector(".text");
   const scoreNode = document.querySelector("div.score");
   function renderBoard() {
     gameboard
@@ -91,12 +91,12 @@ const gameDOM = (function () {
     setTimeout(() => node.classList.remove("shake"), 1000);
   }
   function displayText(text, timeout) {
-    infoNode.textContent = text;
-    infoNode.style.opacity = 1;
+    textNode.textContent = text;
+    textNode.style.opacity = 1;
     if (timeout) {
       setTimeout(() => {
-        infoNode.style.opacity = 0;
-        setTimeout(() => infoNode.textContent, 500);
+        textNode.style.opacity = 0;
+        setTimeout(() => (textNode.textContent = ""), 100);
       }, timeout);
     }
   }
