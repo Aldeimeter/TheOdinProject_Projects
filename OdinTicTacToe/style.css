@@ -368,3 +368,9 @@ footer {
     background-size: 100%;
   }
 }
+/* TODO:
+ * Fix hosted version layout, wtf?
+ */
+.highlight {
+  background-color: var(--pink-bg);
+}

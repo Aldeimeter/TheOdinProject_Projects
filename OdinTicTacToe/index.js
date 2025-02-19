@@ -65,7 +65,9 @@ const gameboard = (function () {
     isGameFinished,
   };
 })();
-
+/* TODO:
+ * Add highlight to define who make move now.
+ */
 const gameDOM = (function () {
   const boardNodes = [...document.querySelectorAll(".game > span")];
   const textNode = document.querySelector(".text");
@@ -108,6 +110,15 @@ const gameDOM = (function () {
       (el, index) => (el.textContent = players[index].score),
     );
   }
+  function displayActualPlayer(actualPlayerIndex) {
+    [...scoreNode.querySelectorAll("span.name")].map((el, index) => {
+      if (index === actualPlayerIndex) {
+        el.classList.add("highlight");
+      } else {
+        el.classList.remove("highlight");
+      }
+    });
+  }
   function toggleGameMenu() {
     const menuNode = document.querySelector("form");
     const gameNode = document.querySelector(".game-container");
@@ -129,15 +140,31 @@ const gameDOM = (function () {
     shake,
     displayText,
     displayScore,
+    displayActualPlayer,
     toggleGameMenu,
   };
 })();
 const game = (function () {
   let players = null;
+  const actualPlayerHelper = (function () {
+    let actualPlayerIndex = 0;
+
+    function setNextPlayer() {
+      actualPlayerIndex = (actualPlayerIndex + 1) % 2;
+    }
+    function getActualPlayerIndex() {
+      return actualPlayerIndex;
+    }
+    return {
+      setNextPlayer,
+      getActualPlayerIndex,
+    };
+  })();
   function start() {
     gameboard.init();
     gameDOM.displayScore(players);
     gameDOM.toggleGameMenu();
+    gameDOM.displayActualPlayer(actualPlayerHelper.getActualPlayerIndex());
   }
   function restart() {
     gameDOM.displayText("", 0);
@@ -145,14 +172,6 @@ const game = (function () {
     gameDOM.clear();
     gameboard.init();
   }
-  const getActualPlayerIndex = (function () {
-    let actualPlayerIndex = 0;
-
-    return function () {
-      actualPlayerIndex = (actualPlayerIndex + 1) % 2;
-      return actualPlayerIndex;
-    };
-  })();
   document.querySelector(".game").addEventListener("click", (ev) => {
     if (!players) {
       gameDOM.toggleGameMenu();
@@ -171,11 +190,11 @@ const game = (function () {
       return;
     }
 
-    const actualPlayer = players[getActualPlayerIndex()];
-
+    const actualPlayer = players[actualPlayerHelper.getActualPlayerIndex()];
+    actualPlayerHelper.setNextPlayer();
     gameDOM.mark(ev.target, actualPlayer.mark);
     gameDOM.renderBoard();
-
+    gameDOM.displayActualPlayer(actualPlayerHelper.getActualPlayerIndex());
     const actualState = gameboard.getState();
 
     if (actualState === "win") {
