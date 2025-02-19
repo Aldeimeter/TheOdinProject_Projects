@@ -32,7 +32,7 @@ body {
   grid-template-rows: minmax(50px, max-content) 1fr 100px;
   place-content: center;
   justify-items: center;
-  gap: clamp(5px, 5vh, 50px);
+  gap: 10px;
 }
 body > *:not(#stars-container) {
   z-index: 1;
@@ -48,11 +48,10 @@ button {
 }
 div.game {
   justify-content: center;
-  border-radius: 5px;
   padding: 10px;
   gap: 5px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 275px));
+  grid-template-columns: repeat(3, minmax(100px, 150px));
 }
 .game > span {
   display: grid;
@@ -65,7 +64,7 @@ div.game {
 }
 header {
   padding-block: 0.625em;
-  font-size: clamp(2rem, 3vw + 1rem, 4rem);
+  font-size: clamp(1.5rem, 5vw - 1rem, 2.5rem);
 }
 h1 {
   font-size: inherit;
@@ -77,7 +76,8 @@ form {
   border-radius: 5px;
   background-color: var(--pink-bg);
   color: var(--bright-fg);
-  font-size: clamp(1rem, 5vw - 1rem, 1.5rem);
+  /*font-size: clamp(1rem, 5vw - 1rem, 1.5rem);*/
+  font-size: 1rem;
 }
 
 form > fieldset {
@@ -216,7 +216,7 @@ form > button[type="submit"]:hover {
 }
 .info {
   display: grid;
-  font-size: clamp(1rem, 5vw - 1rem, 2.5rem);
+  font-size: clamp(1rem, 5vw - 1rem, 1.5rem);
   grid-template-columns: 1fr 9.375em;
   padding: 0 0.675em;
 }
@@ -290,12 +290,11 @@ footer {
 }
 .tooltip {
   position: absolute;
-  top: -100%;
+  top: -10%;
   left: 50%;
   transform: translate(-50%, -100%);
   font-size: clamp(0.75rem, 5vw - 1rem, 1.5rem);
   width: clamp(25%, 100vw, 40ch);
-  /*max-width: 40ch;*/
   line-height: 1.5;
   letter-spacing: 0.1rem;
   background-color: var(--pink-bg);
@@ -320,8 +319,8 @@ footer {
   align-items: center;
   text-align: center;
   line-height: 1.5;
-  font-size: clamp(1rem, 5vw - 1rem, 2.5rem);
-  gap: 10px;
+  font-size: clamp(1rem, 5vw - 1rem, 1.5rem);
+  gap: 0.675em;
 }
 .italic {
   font-style: italic;
@@ -338,39 +337,30 @@ footer {
   width: 100dvw;
   height: 100dvh;
   pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
+  overflow: hidden; /* Prevents overflow issues */
+  bottom: 0;
 }
 #stars-container i {
-  background-size: 75%;
+  background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
   height: 100%;
   width: 100%;
-  bottom: -25%;
 }
 #star-1 {
   background-image: url("./assets/star-1.svg");
   left: -35%;
+  bottom: 0;
+  transform: translateY(40%); /* Moves it slightly below the viewport */
 }
+
 #star-2 {
   background-image: url("./assets/star-2.svg");
-  right: -60%;
+  right: -20%;
+  bottom: 0;
+  transform: translateY(40%);
+  max-width: 50vw; /* Prevents overflow */
 }
-@media screen and (max-width: 1300px) {
-  #stars-container i {
-    bottom: -50%;
-  }
-}
-@media screen and (max-width: 900px) {
-  #stars-container i {
-    bottom: -70%;
-    background-size: 100%;
-  }
-}
-/* TODO:
- * Fix hosted version layout, wtf?
- */
 .highlight {
   background-color: var(--pink-bg);
 }
