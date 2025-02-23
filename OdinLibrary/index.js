@@ -1,19 +1,19 @@
 const myLibrary = [];
 const libraryNode = document.querySelector("#library");
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+  display(index) {
+    return `<div data-index=${index} class="book card"><button class="delete"></button><h3>${this.title}</h3><h4>${this.author}</h4><p>${this.pages} pages</p><button class="toggle-read">${this.isRead ? "Already read" : "Not read yet"}</button></div>`;
+  }
+  toggleRead() {
+    this.isRead = !this.isRead;
+  }
 }
-
-Book.prototype.display = function (index) {
-  return `<div data-index=${index} class="book card"><button class="delete"></button><h3>${this.title}</h3><h4>${this.author}</h4><p>${this.pages} pages</p><button class="toggle-read">${this.isRead ? "Already read" : "Not read yet"}</button></div>`;
-};
-
-Book.prototype.toggleRead = function () {
-  this.isRead = !this.isRead;
-};
 
 function deleteBook(ev) {
   if (!ev.target.classList.contains("delete")) return;
