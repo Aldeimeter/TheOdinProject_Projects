@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+  color: #1d3557;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  color: inherit;
+}
+button:hover {
+  transform: scale(1.15);
+  color: #e63946;
+}
+html {
+  font-size: 16px;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: #f1faee;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid #457b9d;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+nav > button {
+  font-size: 1.125rem;
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  height: 2rem;
+  border-top: 3px solid #457b9d;
+  padding-top: 20px;
+}
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  font-size: clamp(3rem, 15vw, 7rem);
+  font-style: italic;
+  color: #e63946;
+  margin-bottom: 1em;
+  border-bottom: 5px dotted #457b9d;
+}
+.info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: clamp(250px, 50%, 600px);
+  background: #a8dadc;
+  padding: 1em;
+  border-radius: 20px;
+}
+section > h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  border-bottom: 2px dotted #457b9d;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+section > p {
+  line-height: 1.5;
+}
