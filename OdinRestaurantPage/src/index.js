@@ -24,5 +24,5 @@ const observer = new IntersectionObserver(
 observer.observe(sentinel);
 // homepage();
 
-menu();
+// menu();
 
