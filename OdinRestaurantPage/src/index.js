@@ -22,7 +22,7 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(sentinel);
-// homepage();
 
-// menu();
-
+homepage();
+document.querySelector("#home").addEventListener("click", () => homepage());
+document.querySelector("#menu").addEventListener("click", () => menu());
