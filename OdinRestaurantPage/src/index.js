@@ -1,6 +1,7 @@
 import "./styles.css";
 
 import homepage from "./homepage";
+import menu from "./menu";
 
 const header = document.querySelector('header');
 const sentinel = document.querySelector('#header-sentinel');
@@ -22,4 +23,6 @@ const observer = new IntersectionObserver(
 
 observer.observe(sentinel);
 // homepage();
+
+menu();
 
